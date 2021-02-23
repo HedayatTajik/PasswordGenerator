@@ -1,19 +1,55 @@
-
-
-
-
 <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title>Password Genrator</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
+  <mat-card-header>
+    <mat-card-title>Password Genrator</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- <h3>passwordArray: {{passwordArray}}</h3> -->
+    <h3>passwords: {{ passwords }}</h3>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="generatur()">
+      neue Passwort erzeuge.
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!savedButton"
+      (click)="savePassword()"
+    >
+      Password speichern
+    </button>
+  </mat-card-actions>
+</mat-card>
 
-            <!-- <h3>passwordArray: {{passwordArray}}</h3> -->
-            <h3>passwords: {{passwords}}</h3>
-
-      </mat-card-content>
-      <mat-card-actions>
-            <button mat-raised-button color="warn" (click)="generatur()"> neue Passwort erzeuge.</button>   
-            <button mat-raised-button color="primary" >Password speichern</button>
-      </mat-card-actions>
-    </mat-card>
+<mat-card *ngIf="savedPasswordArray.length > 0" class="example-card">
+  <mat-card-header>
+    <mat-card-title>geschpeicherte Passwords</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Password</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let item of savedPasswordArray; let indexOfelement = index">
+        <td>{{ indexOfelement + 1 }}</td>
+        <td>{{ item }}</td>
+        <td>
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="deleteItem(indexOfelement)"
+          >
+            Password löschen
+          </button>
+        </td>
+      </tr>
+    </table>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="deleteAllPassword()">
+      Alle Passworde löschen
+    </button>
+  </mat-card-actions>
+</mat-card>

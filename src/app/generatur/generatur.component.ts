@@ -10,6 +10,8 @@ export class GeneraturComponent implements OnInit {
   password: number = 0;
   passwords: string = '';
   passwordArray = [];
+  savedPasswordArray = [];
+  savedButton: boolean = false;
 
   constructor() {}
 
@@ -22,6 +24,7 @@ export class GeneraturComponent implements OnInit {
       this.passwordArray.push(this.password);
     }
     this.passwords = String.fromCharCode(...this.passwordArray);
+    this.savedButton = true;
   }
 
   mathRandom(): number {
@@ -47,5 +50,16 @@ export class GeneraturComponent implements OnInit {
       }
     }
     return number;
+  }
+
+  savePassword() {
+    this.savedPasswordArray.push(this.passwords);
+    console.log('savedPasswordArray', this.savedPasswordArray);
+  }
+  deleteItem(indexOfelement) {
+    this.savedPasswordArray.splice(indexOfelement, 1);
+  }
+  deleteAllPassword() {
+    this.savedPasswordArray = [];
   }
 }
