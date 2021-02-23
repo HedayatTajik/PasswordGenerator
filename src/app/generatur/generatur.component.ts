@@ -54,12 +54,12 @@ export class GeneraturComponent implements OnInit {
 
   savePassword() {
     this.savedPasswordArray.push(this.passwords);
-    console.log('savedPasswordArray', this.savedPasswordArray);
   }
   deleteItem(indexOfelement) {
     this.savedPasswordArray.splice(indexOfelement, 1);
   }
   deleteAllPassword() {
     this.savedPasswordArray = [];
+    this.savedButton = false;
   }
 }
