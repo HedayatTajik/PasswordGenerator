@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./generatur.component.css'],
 })
 export class GeneraturComponent implements OnInit {
+  numberOfChar = 10;
   number: number = 0;
   password: number = 0;
   passwords: string = '';
@@ -19,7 +20,7 @@ export class GeneraturComponent implements OnInit {
 
   generatur() {
     this.passwordArray = [];
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < this.numberOfChar; index++) {
       this.password = this.mathRandom();
       this.passwordArray.push(this.password);
     }

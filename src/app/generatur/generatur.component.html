@@ -3,6 +3,10 @@
     <mat-card-title>Password Genrator</mat-card-title>
   </mat-card-header>
   <mat-card-content>
+    <mat-form-field class="example-form-field">
+      <mat-label>passwordzahlen ?</mat-label>
+      <input matInput type="text" [(ngModel)]="numberOfChar">
+    </mat-form-field>
     <!-- <h3>passwordArray: {{passwordArray}}</h3> -->
     <h3>passwords: {{ passwords }}</h3>
   </mat-card-content>
