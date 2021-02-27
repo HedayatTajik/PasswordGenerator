@@ -16,3 +16,7 @@ table, td, th {
     th, td {
       padding: 15px;
     }
+
+    .example-form-field{
+      width: 100%;
+    }
