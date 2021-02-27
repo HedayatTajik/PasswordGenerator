@@ -30,17 +30,8 @@ export class GeneraturComponent implements OnInit {
   mathRandom(): number {
     let number = Math.floor(Math.random() * 126);
 
-    if (number < 35) {
-      let flag = true;
-      while (flag) {
-        number = Math.floor(Math.random() * 126);
-        if (number >= 35) {
-          flag = false;
-        }
-      }
-    }
-
     if (
+      number < 35 ||
       number === 39 ||
       number === 44 ||
       number === 46 ||
@@ -50,10 +41,9 @@ export class GeneraturComponent implements OnInit {
     ) {
       let flag = true;
       while (flag) {
-        number = Math.floor(Math.random() * 127);
-
+        number = Math.floor(Math.random() * 126);
         if (
-          number > 35 &&
+          number >= 35 &&
           number !== 39 &&
           number !== 44 &&
           number !== 46 &&
