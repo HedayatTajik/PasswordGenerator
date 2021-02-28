@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeneraturComponent implements OnInit {
   numberOfChar = 10;
-  password: number = 0;
+  randomNumber: number = 0;
   passwords: string = '';
-  passwordArray: number[] = [];
+  randomNumberArray: number[] = [];
   savedPasswordArray = [];
   savedButton: boolean = false;
 
@@ -18,12 +18,12 @@ export class GeneraturComponent implements OnInit {
   ngOnInit(): void {}
 
   generatur(): void {
-    this.passwordArray = [];
+    this.randomNumberArray = [];
     for (let index = 0; index < this.numberOfChar; index++) {
-      this.password = this.mathRandom();
-      this.passwordArray.push(this.password);
+      this.randomNumber = this.mathRandom();
+      this.randomNumberArray.push(this.randomNumber);
     }
-    this.passwords = String.fromCharCode(...this.passwordArray);
+    this.passwords = String.fromCharCode(...this.randomNumberArray);
     this.savedButton = true;
   }
 
